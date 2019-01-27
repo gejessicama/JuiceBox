@@ -33,21 +33,17 @@
       <div id="score1"></div>
       <div class="jumbotron">
      
-        <button type="submit" ng-click = "ctrl.dictateIt()" class="btn btn-primary">
-            New Command
-        </button>
+        <h3>Speak into the microphone.</h3>
 
         <br>
-        
+        <textarea ng-model="ctrl.theText" rows="2" cols="40" class="form-control"></textarea>
+
+        <h3>History</h3>
         <div class="well">
-          <textarea ng-model="ctrl.theText" rows="2" cols="40" class="form-control">
-        </div>
-        
-        <div class="well">
-          <span ng-repeat="item in ctrl.history">
+          <span ng-repeat= "h in ctrl.history track by $index">
             <div class="row">
               <div class="col-xs-10">
-                {{item}}
+                {{h}}
               </div>
               <div class="col-xs-1">
                 <button ng-click="ctrl.history.splice($index, 1)" aria-label="Remove" class="btn btn-default btn-sm">X</button>
@@ -56,6 +52,8 @@
             <br>
           </span>
         </div>
+        
+        
       </div>
     
     </div>
