@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', root),
 
-    
+    path('square/<int:n>/', square),
+    path('subtract/<int:a>/<int:b>/', subtract),
 
 ]
