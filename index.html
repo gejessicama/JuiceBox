@@ -40,7 +40,21 @@
         <br>
         
         <div class="well">
-          <textarea ng-model="ctrl.theText" rows="4" cols="40" class="form-control">
+          <textarea ng-model="ctrl.theText" rows="2" cols="40" class="form-control">
+        </div>
+        
+        <div class="well">
+          <span ng-repeat="item in ctrl.history">
+            <div class="row">
+              <div class="col-xs-10">
+                {{item}}
+              </div>
+              <div class="col-xs-1">
+                <button ng-click="ctrl.history.splice($index, 1)" aria-label="Remove" class="btn btn-default btn-sm">X</button>
+              </div>
+            </div>
+            <br>
+          </span>
         </div>
       </div>
     

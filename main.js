@@ -8,16 +8,20 @@ angular.module('musicApp', ["pubnub.angular.service"])
     ctrl.dictateIt = dictateIt; 
     ctrl.theText = "";
     ctrl.parseText = parseText; 
+    ctrl.history = [];
     ctrl.score;
 
     ctrl.onInit = init; 
 
-    $scope.$watch("ctrl.theText", parseText);
+    $scope.$watch("ctrl.theText", function(oldevent, newevent){
+        ctrl.history.push(oldevent);
+        parseText();
+    });
 
     function init(){
         // Initialize the Noteflight client API.
         NFClient.init(function(info) {
-        var options = {width: 650, height: 600};
+        var options = {width: 650, height: 300};
         ctrl.score = new NFClient.ScoreView('score1','4498660f18270084d372ffc0e58831c6515924f0', options);
         });
         ctrl.dictateIt();
