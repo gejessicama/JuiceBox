@@ -33,12 +33,11 @@
       <div id="score1"></div>
       <div class="jumbotron">
      
-        <h3>Speak into the microphone</h3>
-
-        <br>
-        <textarea ng-model="ctrl.theText" rows="2" cols="40" class="form-control"></textarea>
-
-
+        <h3>Speak into the microphone.
+          <button ng-if="ctrl.isPaused" ng-click= "ctrl.toggle()" class="btn btn-primary"> Resume </button>
+          <button ng-if="!ctrl.isPaused" ng-click= "ctrl.toggle()" class="btn btn-primary"> Pause </button>
+        </h3>
+        
         <div class="well sidenav">
         <h3>History</h3>
           <span ng-repeat= "h in ctrl.history track by $index">
