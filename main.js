@@ -17,7 +17,7 @@ angular.module('musicApp', ["pubnub.angular.service"])
 
     $scope.$watch("ctrl.theText", function(oldevent, newevent){
         if(oldevent){
-            ctrl.history.push(oldevent);
+            ctrl.history.unshift(oldevent);
         }
         parseText();
     });

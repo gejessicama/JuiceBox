@@ -43,13 +43,11 @@
         
         <div class="well sidenav">
         <h3>History</h3>
+        <br/>
           <span ng-repeat= "h in ctrl.history track by $index">
             <div class="row">
               <div class="col-xs-10">
                 {{h}}
-              </div>
-              <div class="col-xs-1">
-                <button ng-click="ctrl.history.splice($index, 1)" aria-label="Remove" class="btn btn-default btn-sm">X</button>
               </div>
             </div>
             <br>
