@@ -127,6 +127,7 @@ angular.module('musicApp', ["pubnub.angular.service"])
             case "3":
                 return 3;
             case "four":
+            case "for":
             case "4":
                 return 4;
             case "five":
