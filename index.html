@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Voice Controlled Noteflight</title>
+    <title>JuiceBox</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -26,20 +26,21 @@
     <div class="container" ng-controller = "MusicController as ctrl">
       <div class="row">
         <div class="col"></div>
-        <h2 class="title">Voice Controlled NoteFlight</h2>
+        <h2 class="title">J U I C E B O X</h2>
       </div>
       
       <br>
       <div id="score1"></div>
       <div class="jumbotron">
      
-        <h3>Speak into the microphone.</h3>
+        <h3>Speak into the microphone</h3>
 
         <br>
         <textarea ng-model="ctrl.theText" rows="2" cols="40" class="form-control"></textarea>
 
+
+        <div class="well sidenav">
         <h3>History</h3>
-        <div class="well">
           <span ng-repeat= "h in ctrl.history track by $index">
             <div class="row">
               <div class="col-xs-10">

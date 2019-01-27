@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Krub');
+
 .container{
     max-width: 700px;
     margin: auto;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Krub', sans-serif;
     text-align: center; 
 }
 .title{
@@ -18,8 +20,20 @@
     font-size: 1.5em;
 }
 
-.taco-btn{
+.btn{
     display: inline-block;
     width: 30%;
     text-align: center;
+}
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 300px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: #FFFFFF; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
 }
