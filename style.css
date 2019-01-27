@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Krub');
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
 
 .container{
     max-width: 700px;
+    height: auto;
     margin: auto;
     font-family: 'Krub', sans-serif;
     text-align: center; 
 }
 .title{
     text-emphasis: bold;
-    font-size: 3em;
+    size: 5em;
+    font-family: 'Poiret One', sans-serif;
 }
 
 .subtitle{
@@ -22,13 +26,14 @@
 
 .btn{
     display: inline-block;
+    align-self: center;
     width: 30%;
     text-align: center;
 }
 
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 300px; /* Set the width of the sidebar */
+  width: 20%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -36,4 +41,8 @@
   background-color: #FFFFFF; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
+}
+
+#mainpage{
+	height: 300px;
 }

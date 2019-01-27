@@ -82,8 +82,8 @@ angular.module('musicApp', ["pubnub.angular.service"])
             playMeasure();
         } 
 
-        if (ctrl.theText.indexOf("demo")!== -1){
-            demoShit();
+        if (ctrl.theText.indexOf("slow down")!== -1){
+            slowDown();
         }
         if (ctrl.isPaused == false){
             ctrl.dictateIt();
@@ -167,11 +167,9 @@ angular.module('musicApp', ["pubnub.angular.service"])
     	ctrl.score.playFromMeasure(3);
     }
 
-    function demoShit(){
-    	ctrl.score.selectMeasures(3, 6);
-    	ctrl.score.transpose({semitones: -10});
-    	ctrl.score.setPlaybackSpeed(1);
-    	ctrl.score.playFromMeasure(0);
+    function slowDown(){
+        ctrl.score.setPlaybackSpeed(-1);
+        ctrl.score.playFromMeasure(0);
     }
 
     init(); 
