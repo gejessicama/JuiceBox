@@ -1,0 +1,25 @@
+.container{
+    max-width: 700px;
+    margin: auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center; 
+}
+.title{
+    text-emphasis: bold;
+    font-size: 3em;
+}
+
+.subtitle{
+    font-size: 1.2em;
+}
+
+.subheading{
+    text-emphasis: bold;
+    font-size: 1.5em;
+}
+
+.taco-btn{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}

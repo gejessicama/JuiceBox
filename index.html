@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = "musicApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Taco Assembler</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+
+    <!-- Voice Detection Libraries -->
+    <script src="https://cdn.pubnub.com/pubnub-3.15.1.min.js"></script>
+    <script src="https://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-3.2.1.min.js"></script>
+
+    <!-- Other Scripts -->
+    <script src="main.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container" ng-controller = "MusicController as ctrl">
+      <div class="row">
+        <div class="col"></div>
+        <h2 class="title">Get Voice to Speech Working</h2>
+      </div>
+      
+      <br>
+      <div class="jumbotron">
+     
+        <h3>Voice to Text Output</h3> 
+        <button type="submit" ng-click = "ctrl.dictateIt()" class="btn btn-primary">
+            Record
+        </button>
+        <br>
+        
+        <div class="well">
+          <textarea ng-model="ctrl.theText" rows="4" cols="40" class="form-control">
+        </div>
+      </div>
+    
+    </div>
+    
+   
+    
+    
+  </body>
+</html>
