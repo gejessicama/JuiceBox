@@ -9,6 +9,8 @@ angular.module('musicApp', ["pubnub.angular.service"])
     ctrl.theText = "";
     ctrl.parseText = parseText; 
     ctrl.history = [];
+    ctrl.isPaused = false; 
+    ctrl.toggle = toggle; 
     ctrl.score;
 
     ctrl.onInit = init; 
@@ -28,6 +30,16 @@ angular.module('musicApp', ["pubnub.angular.service"])
         });
         ctrl.dictateIt();
     }
+
+    function toggle(){
+        if (ctrl.isPaused){
+            ctrl.isPaused = false; 
+            ctrl.dictateIt(); 
+        }else{
+            ctrl.isPaused = true; 
+        }
+        
+    }
     
     // On Click of a button
     function dictateIt() {
@@ -41,7 +53,9 @@ angular.module('musicApp', ["pubnub.angular.service"])
             for (var i = event.resultIndex; i < event.results.length; i++) {
                 if (event.results[i].isFinal) {
                 // result event
-                ctrl.theText  += event.results[i][0].transcript;
+                    if (ctrl.isPaused == false){
+                        ctrl.theText  += event.results[i][0].transcript;
+                    }
                 }
             }
             });
@@ -51,7 +65,7 @@ angular.module('musicApp', ["pubnub.angular.service"])
 
     function parseText(){
         if (ctrl.theText.indexOf("play")!== -1){
-            ctrl.score.playFromMeasure(0);
+            ctrl.score.playFromSelection();
         }
         if (ctrl.theText.indexOf("stop")!== -1){
             ctrl.score.stopPlayback();
@@ -71,8 +85,12 @@ angular.module('musicApp', ["pubnub.angular.service"])
         if (ctrl.theText.indexOf("demo")!== -1){
             demoShit();
         }
-        ctrl.dictateIt();
-
+        if (ctrl.isPaused == false){
+            ctrl.dictateIt();
+        }
+        if (ctrl.isPaused == true){
+            ctrl.theText = "";
+        }
 
     };
 
@@ -93,7 +111,6 @@ angular.module('musicApp', ["pubnub.angular.service"])
         if (!up){
             interval = 0-interval; 
         }
-        alert(interval);
         ctrl.score.transpose({semitones: interval}, {resumePlayback: true});
     }
 
