@@ -17,6 +17,8 @@
 
     <!-- Other Scripts -->
     <script src="main.js"></script>
+    <script src="https://www.noteflight.com/clientapi/2.0.0/nfclient.js"></script>
+
 
   </head>
 
@@ -24,16 +26,17 @@
     <div class="container" ng-controller = "MusicController as ctrl">
       <div class="row">
         <div class="col"></div>
-        <h2 class="title">Get Voice to Speech Working</h2>
+        <h2 class="title">Voice Controlled bo</h2>
       </div>
       
       <br>
+      <div id="score1"></div>
       <div class="jumbotron">
      
-        <h3>Voice to Text Output</h3> 
         <button type="submit" ng-click = "ctrl.dictateIt()" class="btn btn-primary">
-            Record
+            New Command
         </button>
+
         <br>
         
         <div class="well">

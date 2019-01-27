@@ -6,7 +6,21 @@ angular.module('musicApp', ["pubnub.angular.service"])
   function musicController($rootScope, $scope, Pubnub) {
     var ctrl = this; 
     ctrl.dictateIt = dictateIt; 
-    ctrl.theText = "Press Record and Say Something";
+    ctrl.theText = "";
+    ctrl.parseText = parseText; 
+    ctrl.score;
+
+    ctrl.onInit = init; 
+
+    $scope.$watch("ctrl.theText", parseText);
+
+    function init(){
+        // Initialize the Noteflight client API.
+        NFClient.init(function(info) {
+        var options = {width: 650, height: 600};
+        ctrl.score = new NFClient.ScoreView('score1','2f458252564f838c19b69d97153c0b608b64782d', options);
+        });
+    }
     
     // On Click of a button
     function dictateIt() {
@@ -28,6 +42,34 @@ angular.module('musicApp', ["pubnub.angular.service"])
         recognition.start();
     };
 
+    function parseText(){
+        if (ctrl.theText.indexOf("play")!== -1){
+            ctrl.score.playFromMeasure(0);
+        }
+        if (ctrl.theText.indexOf("stop")!== -1){
+            ctrl.score.stopPlayback();
+        }
+        if (ctrl.theText.indexOf("transpose")!== -1){
+            transpose();
+        }
+    };
+
+    function transpose(){
+        var up = true;
+        if (ctrl.theText.indexOf("down")!== -1){
+            up = false;
+        }
+        var interval = ctrl.theText.replace(/^\D+/g, '').parseInt();
+        if (!up){
+            interval = 0-interval; 
+        }
+        alert("hi")
+        ctrl.score.transpose({semitones: interval});
+    }
+
+    
+
+    init(); 
     //example to http request 
     function getData(object){
         $http.get('https://tacos-ocecwkpxeq.now.sh/'+object.toString()).then(function(response){
