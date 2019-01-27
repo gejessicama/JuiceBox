@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="height=100%, width=device-width, initial-scale=1">
 
     <title>JuiceBox</title>
     <!-- Bootstrap -->
@@ -26,17 +26,20 @@
     <div class="container" ng-controller = "MusicController as ctrl">
       <div class="row">
         <div class="col"></div>
-        <h2 class="title">J U I C E B O X</h2>
+        <h1 class="title"><strong>J U I C E B O X</strong></h1>
+      </div>
+      <div class="row">
+        JuiceBox is a voice-controlled music editor that allows you to have a purely auditory experience. Try "play" and "stop" to play the music, or "transpose up three semitones" or "speed up"
       </div>
       
       <br>
       <div id="score1"></div>
       <div class="jumbotron">
      
-        <h3>Speak into the microphone.
-          <button ng-if="ctrl.isPaused" ng-click= "ctrl.toggle()" class="btn btn-primary"> Resume </button>
-          <button ng-if="!ctrl.isPaused" ng-click= "ctrl.toggle()" class="btn btn-primary"> Pause </button>
-        </h3>
+        <h3>Speak into the microphone.</h3>
+          <button ng-if="ctrl.isPaused" ng-click= "ctrl.toggle()" class="btn btn-primary"> Resume Session </button>
+          <button ng-if="!ctrl.isPaused" ng-click= "ctrl.toggle()" class="btn btn-primary"> Pause Session </button>
+
         
         <div class="well sidenav">
         <h3>History</h3>
@@ -51,15 +54,9 @@
             </div>
             <br>
           </span>
-        </div>
-        
-        
+        </div>        
       </div>
-    
     </div>
-    
-   
-    
     
   </body>
 </html>
