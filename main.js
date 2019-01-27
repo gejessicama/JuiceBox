@@ -18,8 +18,9 @@ angular.module('musicApp', ["pubnub.angular.service"])
         // Initialize the Noteflight client API.
         NFClient.init(function(info) {
         var options = {width: 650, height: 600};
-        ctrl.score = new NFClient.ScoreView('score1','2f458252564f838c19b69d97153c0b608b64782d', options);
+        ctrl.score = new NFClient.ScoreView('score1','4498660f18270084d372ffc0e58831c6515924f0', options);
         });
+        ctrl.dictateIt();
     }
     
     // On Click of a button
@@ -73,12 +74,52 @@ angular.module('musicApp', ["pubnub.angular.service"])
         if (ctrl.theText.indexOf("down")!== -1){
             up = false;
         }
-        var interval = ctrl.theText.replace(/^\D+/g, '').parseInt();
+        var interval;
+        
+        var strings = ctrl.theText.split(" ");
+        for (var i = 0; i<strings.length; i++){
+            if (text2num(strings[i])>0){
+                interval = text2num(strings[i]);
+            }
+        }
+        
         if (!up){
             interval = 0-interval; 
         }
-        alert("hi")
-        ctrl.score.transpose({semitones: interval});
+ 
+        ctrl.score.transpose({semitones: interval}, {resumePlayback: true});
+    }
+
+    function text2num(text){
+        switch(text){
+            case "one", "1":
+                return 1;
+            case "two", "2":
+                return 2;
+            case "three", "3":
+                return 3;
+            case "four", "4":
+                return 4;
+            case "five", "5":
+                return 5;
+            case "six", "6":
+                return 6;
+            case "seven","7":
+                return 7;
+            case "eight","8":
+                return 8;
+            case "nine","9":
+                return 9;
+            case "ten","10":
+                return 10;
+            case "eleven","11":
+                return 11;
+            case "twelve", "12":
+                return 12;
+            default:
+                return -1;
+
+        }
     }
 
     function changeSpeed(){
