@@ -34,7 +34,7 @@
       
       <br>
       <div id="score1"></div>
-      <div class="jumbotron">
+      <div class="">
      
         <h3>Speak into the microphone.</h3>
           <button ng-if="ctrl.isPaused" ng-click= "ctrl.toggle()" class="btn btn-primary"> Resume Session </button>
@@ -55,6 +55,21 @@
             <br>
           </span>
         </div>        
+
+        <div class="well leftnav">
+        <h3>Supported Commands</h3>
+        <br>
+        <p class="commands"><strong>play</strong>: <br />play from the beginning</p>
+        <p class="commands"><strong>stop</strong>: <br />stop playing</p>
+        <p class="commands"><strong>measure #</strong>: <br />play from measure #</p>
+        <p class="commands"><strong>transpose up # semitones</strong>: <br />transpose everything up # semitones</p>
+        <p class="commands"><strong>transpose down # semitones</strong>: <br />transpose everything down # semitones</p>
+        <p class="commands"><strong>speed up</strong>: <br />playback at 2x speed</p>
+        <p class="commands"><strong>slow down</strong>: <br />playback at 0.5x speed</p>
+
+        </div>   
+
+
       </div>
     </div>
     

@@ -78,7 +78,7 @@ angular.module('musicApp', ["pubnub.angular.service"])
             changeSpeed();
         }
 
-        if (ctrl.theText.indexOf("measure three")!== -1){
+        if (ctrl.theText.indexOf("measure")!== -1){
             playMeasure();
         } 
 
@@ -120,6 +120,7 @@ angular.module('musicApp', ["pubnub.angular.service"])
             case "1":
                 return 1;
             case "two":
+            case "to":
             case "2":
                 return 2;
             case "three":
@@ -164,7 +165,14 @@ angular.module('musicApp', ["pubnub.angular.service"])
     }
 
     function playMeasure(){
-    	ctrl.score.playFromMeasure(3);
+        var measure;
+    	var strings = ctrl.theText.split(" ");
+        for (var i = 0; i<strings.length; i++){
+            if (text2num(strings[i])>0){
+                measure = text2num(strings[i]);
+            }
+        }
+        ctrl.score.playFromMeasure(measure);
     }
 
     function slowDown(){
